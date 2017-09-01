@@ -64,23 +64,16 @@ def lambda_handler(event, context):
 
     imagesList = []
 
-    # Set to true once we confirm we have a backup taken today
     backupSuccess = True
 
-    # Loop through all of our instances with a tag named "Backup"
     for instance in instances:
 	imagecount = 0
 
-        # Loop through each image of our current instance
         for image in images:
 
-            # Our other Lambda Function names its AMIs Lambda - i-instancenumber.
-            # We now know these images are auto created
-            if image.name.startswith('Lambda - ' + instance['InstanceId']):
+               if image.name.startswith('Lambda - ' + instance['InstanceId']):
 
-                # print "FOUND IMAGE " + image.id + " FOR INSTANCE " + instance['InstanceId']
-
-                # Count this image's occcurance
+        
 	        imagecount = imagecount + 1
 
                 try:
@@ -94,17 +87,13 @@ def lambda_handler(event, context):
                     delete_date = False
 
                 today_time = datetime.datetime.now().strftime('%Y-%m-%d')
-                # today_fmt = today_time.strftime('%m-%d-%Y')
                 today_date = time.strptime(today_time, '%Y-%m-%d')
 
-                # If image's DeleteOn date is less than or equal to today,
-                # add this image to our list of images to process later
+           
                 if delete_date <= today_date:
                     imagesList.append(image.id)
 
-                # Make sure we have an AMI from today and mark backupSuccess as true
                 if image.name.endswith(date_fmt):
-                    # Our latest backup from our other Lambda Function succeeded
                     backupSuccess = True
                     print "Latest backup from " + date_fmt + " was a success"
 
