@@ -59,4 +59,4 @@ You will need to tag your instances in order for them to be backed up, below are
 ## More Info
 
 
-[if you need more details on setting this up please mail me to rajeshkrish12@yahoo.com] 
+[if you need more details on setting this up please mail me to rajeshkrish12@gmail.com] 
