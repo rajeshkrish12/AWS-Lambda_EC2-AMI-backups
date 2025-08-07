@@ -1,8 +1,8 @@
 # AWS-Lambda_EC2-AMI-backups
-It is to take AMI's of EC2 aws instances through AWS lambda and notify through mail, when the ami creation is triggered.
+It is to take AMI's of EC2 AWS instances through AWS lambda and notify through mail, when the ami creation is triggered.
 Backup deletion code will be updated soon
 
-
+#08/08/25
 
 ## Setting Up IAM Permissions
 
